@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yes or No</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('kissi.png') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      max-width: 90%;
+      width: 600px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .button-container button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s;
+      min-width: 100px;
+    }
+
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+      order: 0;
+    }
+
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+      order: 1;
+    }
+
+    .button-container.swapped #yesBtn {
+      order: 1;
+    }
+
+    .button-container.swapped #noBtn {
+      order: 0;
+    }
+
+    .button-container button:hover {
+      transform: scale(1.1);
+    }
+
+    #loveMessage {
+      display: none;
+      font-size: 2rem;
+      margin-top: 20px;
+      color: #ff69b4;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1rem;
+      }
+
+      .button-container button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      #loveMessage {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>
+      I love you with a depth and passion that I have felt for no one else in this life.<br>
+      And if it astonishes you, it astonishes me as well. Not, I hasten to say, because you are not worthy of loving—far from it.<br>
+      It's just that, babyyyyy, I swore you give me a reason to live this life.<br><br>
+      Do you love me babyyyyyyy?
+    </h2>
+
+    <div class="button-container" id="buttonContainer">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <div id="loveMessage">I love you toooo 💖</div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const buttonContainer = document.getElementById('buttonContainer');
+    const loveMessage = document.getElementById('loveMessage');
+
+    noBtn.addEventListener('mouseenter', () => {
+      buttonContainer.classList.toggle('swapped');
+    });
+
+    yesBtn.addEventListener('click', () => {
+      buttonContainer.style.display = 'none';
+      loveMessage.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
